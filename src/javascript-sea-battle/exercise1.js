@@ -1,4 +1,4 @@
-class Ship {
+export class Ship {
   constructor(name, length, location) {
     this._name = name;
     this._length = length;
@@ -108,7 +108,7 @@ function createShipWithPrompt() {
   ship.hit(1);
 
   console.log(
-    `${ship.name}, ${ship.length}, ${ship.location}, ${ship.isSunk()}`
+    `Имя - ${ship.name}, Длинна -  ${ship.length}, Расположение - ${ship.location}, Потоплен? - ${ship.isSunk()}`
   );
 
   return ship;
