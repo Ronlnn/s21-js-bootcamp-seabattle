@@ -1,6 +1,6 @@
 import { Ship } from './exercise1.js';
 
-class Board {
+export class Board {
   constructor(size) {
     this._size = size;
     this._grid = Array(size)
@@ -135,6 +135,7 @@ function display() {
     console.log(line.trim()); // Выводим строку
   }
 }
+console.log('%cEXERCISE 2', 'color: green; font-weight: bold;');
 
 const board = new Board(5);
 const myShip = new Ship('Ship', 3, 1);

@@ -113,5 +113,6 @@ function createShipWithPrompt() {
 
   return ship;
 }
-console.log('Exercise1')
+console.log('%cEXERCISE 1', 'color: green; font-weight: bold;');
+
 createShipWithPrompt();
