@@ -1,4 +1,4 @@
-import { Ship } from './exercise1.js';
+import { Ship } from './ship.js';
 
 export class Board {
   constructor(size) {
@@ -137,17 +137,16 @@ function display() {
 }
 console.log('%cEXERCISE 2', 'color: green; font-weight: bold;');
 
-const board = new Board(5);
-const myShip = new Ship('Ship', 3, 1);
-board.placeShip(myShip, 1, 1);
-console.log('Текущее поле после размещения корабля ');
-console.table(board.grid);
+// const board = new Board(5);
+// const myShip = new Ship('Ship', 3, 1);
+// board.placeShip(myShip, 1, 1);
+// console.log('Текущее поле после размещения корабля ');
+// console.table(board.grid);
 
-console.log(board.receiveAttack(2, 1)); // Попадание в третью ячейку корабля
-console.log(myShip.hits);
-console.table(board.grid);
-const availableCells = board.findAvailableCells();
-console.log(`Свободных клеток: ${availableCells.length}`);
-console.log(availableCells);
-
-display();
+// console.log(board.receiveAttack(2, 1)); // Попадание в третью ячейку корабля
+// console.log(myShip.name, myShip.hits);
+// console.table(board.grid);
+// const availableCells = board.findAvailableCells();
+// console.log(`Свободных клеток: ${availableCells.length}`);
+// console.log(availableCells);
+// display();

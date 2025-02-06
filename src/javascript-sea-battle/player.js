@@ -1,5 +1,5 @@
-import { Board } from './exercise2.js';
-import { Ship } from './exercise1.js';
+import { Board } from './board.js';
+import { Ship } from './ship.js';
 
 class Player {
   constructor(name, boardSize) {
@@ -52,23 +52,23 @@ class Player {
     return { x, y, opponent };
   }
 }
-
-// Запрос имени и размера доски
-const input = prompt('Введите имя игрока и размер доски (пример: Arthur 5)');
-const [playerName, boardSizeStr] = input.split(' ');
-const boardSize = Number(boardSizeStr);
-
-if (!playerName || isNaN(boardSize)) {
-  throw new Error('Неверный ввод. Укажите имя и размер доски.');
-}
-
 console.log('%cEXERCISE 3', 'color: green; font-weight: bold;');
 
+// Запрос имени и размера доски
+// const input = prompt('Введите имя игрока и размер доски (пример: Arthur 5)');
+// const [playerName, boardSizeStr] = input.split(' ');
+// const boardSize = Number(boardSizeStr);
+// const player1 = new Player(playerName, boardSize);
+// console.log(`${player1.name}, ${player1.boardSize}`);
+// player1.placeShips('Destroyer', 3, 1, { x: 1, y: 1 });
+// console.table(player1.board.grid); 
 
-// Создание игрока
-const player1 = new Player(playerName, boardSize);
-console.log(`${player1.name}, ${player1.boardSize}`);
+// const input2 = prompt('Введите имя игрока и размер доски (пример: Arthur 5)');
+// const [playerName2, boardSizeStr2] = input2.split(' ');
+// const boardSize2 = Number(boardSizeStr2);
+// const player2 = new Player(playerName2, boardSize2);
+// console.log(`${player2.name}, ${player2.boardSize}`);
+// player2.placeShips('Full', 3, 1, { x: 2, y: 2 });
+// console.table(player2.board.grid);
 
-// Пример размещения корабля
-player1.placeShips('Destroyer', 3, 1, { x: 1, y: 1 });
-console.table(player1.board.grid);
+// player1.takeTurn(player2);

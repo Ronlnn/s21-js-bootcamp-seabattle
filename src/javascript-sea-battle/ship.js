@@ -81,7 +81,8 @@ export class Ship {
   }
   hit(index) {
     if (index >= 0 && index < this._length) {
-      this.hits[index] = true;
+      this._hits[index] = true;
+      console.log('HIT метод',this._hits);
     } else {
       throw new Error('Index outs of bounds');
     }
