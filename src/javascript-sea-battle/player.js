@@ -1,7 +1,7 @@
 import { Board } from './board.js';
 import { Ship } from './ship.js';
 
-class Player {
+export class Player {
   constructor(name, boardSize) {
     this._name = name;
     this._boardSize = boardSize;
@@ -27,8 +27,11 @@ class Player {
   get board() {
     return this._board;
   }
+  set board(newBoard){
+    this._board = newBoard;
+  }
 
-  placeShips(shipName, length, isVertical, startPosition) {
+  placeShips(shipName, length, location, startPosition) {
     if (
       !startPosition ||
       typeof startPosition.x !== 'number' ||
@@ -36,8 +39,7 @@ class Player {
     ) {
       throw new Error('Начальная позиция должна быть объектом {x, y}');
     }
-    const orientation = isVertical ? 1 : 0;
-    const myShip = new Ship(shipName, length, orientation);
+    const myShip = new Ship(shipName, length, location);
     this._board.placeShip(myShip, startPosition.x, startPosition.y);
   }
   takeTurn(opponent) {
@@ -61,7 +63,7 @@ console.log('%cEXERCISE 3', 'color: green; font-weight: bold;');
 // const player1 = new Player(playerName, boardSize);
 // console.log(`${player1.name}, ${player1.boardSize}`);
 // player1.placeShips('Destroyer', 3, 1, { x: 1, y: 1 });
-// console.table(player1.board.grid); 
+// console.table(player1.board.grid);
 
 // const input2 = prompt('Введите имя игрока и размер доски (пример: Arthur 5)');
 // const [playerName2, boardSizeStr2] = input2.split(' ');

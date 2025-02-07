@@ -85,7 +85,9 @@ export class Board {
     }
     ship.startX = x;
     ship.startY = y;
+    this._ships.push(ship);
     console.log(ship.name, ship.startPosition);
+    console.log(ship.name, ship.location);
   }
 
   findAvailableCells() {
@@ -119,22 +121,26 @@ export class Board {
     }
     return false; // Промах
   }
-}
-function display() {
-  for (let row = 0; row < board.grid.length; row++) {
-    let line = ''; // Создаем строку для текущей строки поля
-    for (let col = 0; col < board.grid[row].length; col++) {
-      if (board.grid[row][col] === null) {
-        line += 'O '; // Пустая клетка
-      } else if (board.grid[row][col] instanceof Ship) {
-        line += 'S '; // Корабль
-      } else if (board.grid[row][col] === 'hit') {
-        line += 'X '; // Попадание
+  display() {
+    console.log('\n  ' + [...Array(this._size).keys()].join(' ')); // Номера колонок
+
+    for (let row = 0; row < this._size; row++) {
+      let line = `${row} `; // Добавляем номер строки в начало
+
+      for (let col = 0; col < this._size; col++) {
+        if (this._grid[row][col] === null) {
+          line += '. '; // Пустая клетка
+        } else if (this._grid[row][col] instanceof Ship) {
+          line += 'S '; // Корабль
+        } else if (this._grid[row][col] === 'hit') {
+          line += 'X '; // Попадание
+        }
       }
+      console.log(line.trim()); // Вывод строки
     }
-    console.log(line.trim()); // Выводим строку
   }
 }
+
 console.log('%cEXERCISE 2', 'color: green; font-weight: bold;');
 
 // const board = new Board(5);
@@ -149,4 +155,4 @@ console.log('%cEXERCISE 2', 'color: green; font-weight: bold;');
 // const availableCells = board.findAvailableCells();
 // console.log(`Свободных клеток: ${availableCells.length}`);
 // console.log(availableCells);
-// display();
+// board.display();
