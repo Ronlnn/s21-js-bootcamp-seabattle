@@ -1,6 +1,7 @@
 // import { Ship } from './ship.js';
 // import { Board } from './board.js';
 import { Player } from './player.js';
+
 class App {
   constructor(boardSize, maxShipLength, maxShips) {
     this._boardSize = boardSize;
@@ -81,7 +82,5 @@ class App {
 console.log('%cEXERCISE 4', 'color: green; font-weight: bold;');
 
 const app = new App(5, 3, 1);
-// const player = new Player('Arthur', 5);
-// app.shipArrangement(player, 1, 3);
+// app.run();
 
-app.run();
