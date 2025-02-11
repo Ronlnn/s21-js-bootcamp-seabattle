@@ -12,7 +12,7 @@ export class HumanPlayer extends Player {
   }
 }
 
-let human = new HumanPlayer('Max', 5);
-console.log('%cEXERCISE 5', 'color: green; font-weight: bold;');
 
-console.log('Имя игрока:', human.name);
+console.log('%cEXERCISE 5', 'color: green; font-weight: bold;');
+// let human = new HumanPlayer('Max', 5);
+// console.log('Имя игрока:', human.name);

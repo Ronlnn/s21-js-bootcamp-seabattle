@@ -35,10 +35,10 @@ export class AIPlayer extends Player {
 }
 
 // Создаём AI игрока
-const ai = new AIPlayer('AIPlayer', 5);
-const ai2 = new AIPlayer('Second', 5);
-console.log(ai.name); // "AIPlayer"
-ai.placeShips('Test', 3);
-ai2.placeShips('Second', 3);
-console.table(ai.board.grid);
-ai.takeTurn(ai2);
+// const ai = new AIPlayer('AIPlayer', 5);
+// const ai2 = new AIPlayer('Second', 5);
+// console.log(ai.name); // "AIPlayer"
+// ai.placeShips('Test', 3);
+// ai2.placeShips('Second', 3);
+// console.table(ai.board.grid);
+// ai.takeTurn(ai2);
