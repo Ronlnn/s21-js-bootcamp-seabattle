@@ -7,12 +7,31 @@ export class AIPlayer extends Player {
   }
 
   placeShips(shipName, length) {
-    const x = this.getRandomInt(0, this.boardSize - 1);
-    const y = this.getRandomInt(0, this.boardSize - 1);
-    const direction = Math.random() < 0.5 ? 0 : 1;
-    super.placeShips(shipName, length, direction, { x: x, y: y });
-    console.log(`AI разместил ${shipName} в (${x}, ${y}) ${direction}`);
+    let x, y, direction;
+    let validPosition = false;
+
+    while (!validPosition) {
+      x = this.getRandomInt(0, this.boardSize - 1);
+      y = this.getRandomInt(0, this.boardSize - 1);
+      direction = Math.random() < 0.5 ? 0 : 1; // 0 - горизонтально, 1 - вертикально
+
+      // Проверяем, не выходит ли корабль за границы
+      if (
+        (direction === 0 && y + length <= this.boardSize) || // Горизонтально
+        (direction === 1 && x + length <= this.boardSize) // Вертикально
+      ) {
+        validPosition = true;
+      }
+    }
+
+    super.placeShips(shipName, length, direction, { x, y });
+    console.log(
+      `AI разместил ${shipName} в (${x}, ${y}) ${
+        direction === 0 ? 'горизонтально' : 'вертикально'
+      }`
+    );
   }
+
   // Случайная атака
   takeTurn(opponent) {
     let x, y;

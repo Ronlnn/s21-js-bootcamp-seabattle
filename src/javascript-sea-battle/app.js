@@ -65,6 +65,7 @@ class App {
     } else {
       this.firstPlayer = new AIPlayer('First AI', 5);
       app.shipArrangement(this.firstPlayer, 1, 3);
+      this.firstPlayer.board.display();
     }
     if (typeSecondPlayer === 1) {
       this.secondPlayer = new HumanPlayer('Den', 5);
