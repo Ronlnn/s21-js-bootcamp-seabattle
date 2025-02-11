@@ -42,8 +42,8 @@ export class Player {
     const myShip = new Ship(shipName, length, location);
     this._board.placeShip(myShip, startPosition.x, startPosition.y);
   }
-  takeTurn(opponent) {
-    let input = prompt('Введите координаты атаки в формате x y');
+  async takeTurn(opponent) {
+    let input = await promptUser(`${this.name}, введите координаты атаки (x y):`);
     let [x, y] = input.split(' ').map(Number);
     if (isNaN(x) || isNaN(y)) {
       console.log('Некорректный ввод. Попробуйте снова.');
@@ -51,8 +51,24 @@ export class Player {
     }
     const hit = opponent.board.receiveAttack(x, y);
     console.log(hit ? 'Попадание!' : 'Промах!');
+    console.log(
+      this.name,`атаковал (${x}, ${y}) и это ${hit ? 'попадание!' : 'промах!'}`
+    );
+    await delay(1000);
     return { x, y, opponent };
   }
+}
+
+function promptUser(question) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const response = prompt(question);
+      resolve(response);
+    }, 10);
+  });
+}
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 console.log('%cEXERCISE 3', 'color: green; font-weight: bold;');
 

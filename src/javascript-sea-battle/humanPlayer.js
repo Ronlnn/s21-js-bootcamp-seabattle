@@ -7,12 +7,14 @@ export class HumanPlayer extends Player {
   placeShips(shipName, length, location, startPosition) {
     super.placeShips(shipName, length, location, startPosition);
   }
-  takeTurn(opponent) {
+  async takeTurn(opponent) {
+    // await delay(1000);
     super.takeTurn(opponent);
   }
 }
-
-
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 console.log('%cEXERCISE 5', 'color: green; font-weight: bold;');
 // let human = new HumanPlayer('Max', 5);
 // console.log('Имя игрока:', human.name);

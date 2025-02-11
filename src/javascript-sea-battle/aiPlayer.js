@@ -33,7 +33,7 @@ export class AIPlayer extends Player {
   }
 
   // Случайная атака
-  takeTurn(opponent) {
+ async takeTurn(opponent) {
     let x, y;
     do {
       x = this.getRandomInt(0, this.boardSize - 1);
@@ -42,8 +42,9 @@ export class AIPlayer extends Player {
     this.attackedCells.add(`${x},${y}`); // Добавляем в список атакованных
     const hit = opponent.board.receiveAttack(x, y);
     console.log(
-      `AI атаковал (${x}, ${y}) и это ${hit ? 'попадание!' : 'промах!'}`
+      this.name,` атаковал (${x}, ${y}) и это ${hit ? 'попадание!' : 'промах!'}`
     );
+    await delay(1000);
     return { x, y, opponent };
   }
 
@@ -51,6 +52,9 @@ export class AIPlayer extends Player {
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+}
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 // Создаём AI игрока

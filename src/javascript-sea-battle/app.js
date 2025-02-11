@@ -51,7 +51,7 @@ class App {
       player.placeShips(shipName, shipLength, location, startPosition);
     }
   }
-  run() {
+ async  run() {
     const typeFirstPlayer = Number.parseInt(
       prompt('Выберите тип игрока 1 - человек, 0 - ИИ')
     );
@@ -80,6 +80,7 @@ class App {
       !this.firstPlayer.board.ships.every(ship => ship.isSunk()) &&
       !this.secondPlayer.board.ships.every(ship => ship.isSunk())
     ) {
+      await delay(1000);
       this.firstPlayer.takeTurn(this.secondPlayer);
 
       // Проверяем, не потоплены ли все корабли второго игрока
@@ -87,9 +88,8 @@ class App {
         console.log(`${this.firstPlayer.name} выиграл!`);
         break;
       }
-
+      await delay(1000);
       this.secondPlayer.takeTurn(this.firstPlayer);
-
       // Проверяем, не потоплены ли все корабли первого игрока
       if (this.firstPlayer.board.ships.every(ship => ship.isSunk())) {
         console.log(`${this.secondPlayer.name} выиграл!`);
@@ -97,6 +97,9 @@ class App {
       }
     }
   }
+}
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 console.log('%cEXERCISE 4', 'color: green; font-weight: bold;');
